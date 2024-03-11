@@ -15,7 +15,7 @@ func pow(eval *bfv.Evaluator, op0 *rlwe.Ciphertext, op1 uint64) (opOut *rlwe.Cip
 		result := pow(eval, op0, op1/2)
 		eval.MulRelin(result, result, result)
 		if op1%2 == 1 {
-			eval.MulRelin(result, op0, result)
+			eval.Mul(result, op0, result)
 		}
 		return result
 	}
